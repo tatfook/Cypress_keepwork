@@ -1,0 +1,6 @@
+{
+    "baseUrl": "https://stage.keepwork.com",
+    "viewportWidth": 1920,
+    "viewportHeight": 1080,
+    "integrationFolder":"cypress/integration"
+}
