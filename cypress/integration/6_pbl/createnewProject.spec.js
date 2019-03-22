@@ -1,7 +1,7 @@
 /**
  * Create on 2019/03/19
  * Author : Duke
- * Description: Login Test
+ * Description: verify the Create page
  */
 let pageInfo = require('../../config/pageInfo')
 let testdata = require('../../config/testdata')

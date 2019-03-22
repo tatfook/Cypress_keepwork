@@ -5,9 +5,36 @@
  */
 let randomStr = require('randomstring');
 
-function GenStr(number, option ='numeric'){
-    let str = randomStr.generate({ length: number, charset: option, capitalization:'lowercase'})
+
+/** 引入第三方库，随意生成数据
+ * @length  - define the length of the random string
+ * @charset - define the character set for the string. (default: 'alphanumeric') 
+    options:{
+        alphanumeric - [0-9 a-z A-Z]
+        alphabetic - [a-z A-Z]
+        numeric - [0-9]
+        hex - [0-9 a-f]
+        custom - any given characters
+    }    
+   @capitalization - define whether the output should be lowercase / uppercase only. (default: null) 
+    options:{
+        lowercase
+        uppercase
+    }
+ */
+function GenStr(length, option ='numeric'){  
+    let str = randomStr.generate({ length: length, charset: option, capitalization:'lowercase'})
     return str;
+}
+
+function createSite(selectors,data){
+    let testelements = selectors;
+    let testdata = data;
+    cy.get(testelements[0]).contains(testdata[0]).click()
+    cy.get(testelements[1]).contains(testdata[1]).click()
+    cy.get(testelements[2]).click()
+    cy.get(testelements[3]).type(testdata[2]).should('have.value', testdata[2])    
+    cy.get(testelements[4]).click()
 }
 
 function search(selectors,text){
@@ -23,8 +50,10 @@ function verifySearchTotalNum(selector,expected){
     })
 }
 
-function verifySearchContent(selectors, expected){
-
+function verifySearchContent(selector, expected){
+    cy.get(selector).should(($val) => {
+        expect($val[0].innerText).to.be.equal(expected)
+    })
 }
 
 function filterby(selectors,type){
@@ -66,4 +95,4 @@ function signup(selectors, data) {
     cy.get(testelements[6]).click()    
 }
 
-module.exports = { GenStr, login, logout, signup, search, verifySearchTotalNum, filterby}
+module.exports = { GenStr, login, logout, signup, search, verifySearchTotalNum, verifySearchContent, filterby, createSite}

@@ -23,6 +23,11 @@ describe("Search Test",function(){
 		cy.get(pageInfo.homepage.avator, { timeout: 6000 })
 	})
 
+	beforeeach(function () {
+		Cypress.Cookies.preserveOnce('token')
+	})	
+
+
 	it("search project via searchbar on the homepage",function(){
 		cy.get(pageInfo.MenuHeader.searchText).type(testdata.search.projectName).should('have.value',testdata.search.projectName)
 		cy.get(pageInfo.MenuHeader.searchBtn).click()
@@ -118,9 +123,31 @@ describe("Search Test",function(){
 		//common.verifySearchContent()  //完善时补充
 		
 	})
+
+	it("search the Recruiting project", function () {
+		cy.get(pageInfo.explorationpage.recruiting).click()
+		common.search(searchselector, testdata.search.recruitedProject)
+		common.verifySearchTotalNum(pageInfo.explorationpage.total_num, testdata.search.result.Num)
+		//common.verifySearchContent()  //完善时补充
+		//切换到最新进行筛选
+		common.filterby(filters, testdata.search.filterType.Newest)
+		//common.verifySearchContent()  //完善时补充
+		common.filterby(filters, testdata.search.filterType.Hottest)
+		//common.verifySearchContent()  //完善时补充
+	})
+	
+
+	it("search the private project",function () {
+		cy.get(pageInfo.explorationpage.projectName).click()
+		common.search(searchselector, testdata.search.privateProject)
+		common.verifySearchContent(pageInfo.explorationpage.total_num, testdata.search.result.Num)
+		common.verifySearchContent(pageInfo.explorationpage.checkpoint.noresult, testdata.search.result.noData)
+	})
    
 	it("filp over the page verification",function () {
-		
+		common.search(searchselector, testdata.search.projectName)
+		common.verifySearchTotalNum(pageInfo.explorationpage.total_num, testdata.search.result.Num)
+		cy.get(pageInfo.explorationpage.paging.nextpage).click()
 	})
 
 	

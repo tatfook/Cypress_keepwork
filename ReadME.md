@@ -16,11 +16,11 @@
        yarn add
     ```
 - 运行命令
-  + window环境
+  + window环境  
     执行start.bat或者命令行输入```npx run```
-  + linux环境
+  + linux环境  
     执行start.sh或者命令行输入```yarn run```
-  + docker环境
+  + docker环境  
     待补充
 
 ## Reference Link

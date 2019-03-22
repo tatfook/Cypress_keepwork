@@ -9,6 +9,7 @@
 const Info = {
     testUrl: 'https://stage.keepwork.com/',
     testTitle:'KeepWork',
+    editorEnterance:'网站编辑器',
     signup: {
         emptyaccount: {
             username: '',
@@ -79,6 +80,8 @@ const Info = {
         lessons:"课程",
         users:"dukes",
         page:"学习",
+        recruitedProject:"默认名字",
+        privateProject:"私有项目",
         filterType:{
             Overall:"综合",
             Newest:"最新",
@@ -87,7 +90,8 @@ const Info = {
             Popularity:"名气"
         },
         result:{
-            Num:0
+            Num:0,
+            noData:"没有找到符合条件的结果"
         }
 
     },
@@ -95,79 +99,43 @@ const Info = {
         cellphone: "15219498528"
     },
     tmppage: {
-        personal: {
-            blankpage: "",
-            basicpage: "基本模板",
-            resumepage: "工作经历",
-            vippage: ""
+        basic: {
+            typeName: "经典布局",
+            basictemp: "经典布局",
+            fullscreentemp:"全屏布局"            
         },
-        company: {
-            prepage1: "新闻资讯",
-            prepage2: "SPECIAL LINK"
-        },
-        group: {
-            prepage: "ParaCraft小组"
-        },
-        game: {
-            prepage: "全国3D创作大赛"
-        },
-        createResult: "恭喜你，网站创建成功！"
+        header: {
+            typeName: "页头布局",
+            headertemp: "页头布局",
+            sidebartemp: "页头与侧边栏"
+        }        
     },
     sites: {
-        sitename: "11",
-        siteAddress: "keepwork.com/test001/11",
+        kpmenu:{
+            createsite:"新建网站",
+            siteSet: "设置网站",
+            pageSet: "设置页面",
+            rmpage: "删除当前页面",
+            Save: "保存",
+            allSave: "全部保存",
+            closepage: "关闭",
+            closeAll: "关闭全部"
+        },
+        welcomeword: "欢迎来到 Keepwork",
+        siteName:{
+            duplicate:"0",
+            chinese:"中国之都"
+        },        
         check: {
-            pageval: '',
-            pagevalagain: 'This is test page!'
+            duplicateSite:"同名网站已经存在",
+            errorNamesite:"网站名只能由字母，数字和下划线组成"
         },
         content: "\n```@Text\nstyleID: 1\ntitle:\n\tname: name\n\tlink: ''\n\ttarget: _self\nparagraph:\n\tdata: >-\n\tRango最帅~Rango最帅~RangoRango最帅~Rango\n```\n",
         saveResult: {
             success: "文件保存成功",
             failed: "文件保存失败"
-        },
-        setup1: {
-            siteicon: "\\testcase\\config\\img\\sitelogo1.jpg",
-            invalidsitename: "AV09",
-            sitename: "中文网站",
-            invalidsiteintro: "AV09",
-            siteintro: "this is a test website~ welcome here.",
-            //invalidsitelabels: ['','12345678901','AV09','123','123'],
-            //sitelabels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'a', 'bb', 'ccc', 'd中文','1e', 'abc', 'keepwork','auto','knowledge'],
-            checkRes: {
-                savesuccess: "站点配置修改成功!!!",
-                savefailed: "您输入的内容不符合互联网安全规范，请修改",
-                //savelabel: ["标签不能为空", "标签最长10个字", "您输入的内容不符合互联网安全规范，请修改", '', "该标签已添加"],
-                //labeloverload:"最多支持20个标签"
-            }
-        },
-        setup2: {
-            siteicon: "\\testcase\\config\\sitelogo2.jpg",
-            sitename: "mysite",
-            siteintro: "This is website created by keepwork, welcome to here~",
-            sitelabels: ['news', 'keepwork', 'ADI']
-        },
-        datasource: {
-            data: "官方git数据源"
-        },
-        DomainName: {
-            noVip_notes: '* 您还不是VIP，不能设置cname 成为VIP'
-        },
-        permissions: {
-            sitetype: {
-                public: '公有项目',
-                private: '私有项目'
-            },
-            Right: {
-                browser: '浏览',
-                edit: '编辑',
-                rejust: '拒绝'
-            },
-            group: {
-                name: "123",
-                member: ["test1", "testvip"],
-                modify: "test3"
-            }
         }
+        
     },
     setupcenter: {
         profile: {
