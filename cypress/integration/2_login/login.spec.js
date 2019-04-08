@@ -13,43 +13,43 @@ let data = []
 
 
 describe("The Keepwork Loign Test",function () {
-    before("visit the homepage",function () {
-        cy.visit("/")
-        cy.url().should('eq', testdata.testUrl)
-        cy.title().should('include', testdata.testTitle)        
-    })
+  before("visit the homepage",function () {
+    cy.visit("/")
+    cy.url().should('eq', testdata.testUrl)
+    cy.title().should('include', testdata.testTitle)        
+  })
 
-    it("login by the wrong keepwork account",function(){
-        data = [testdata.signIn.invalidaccount.username,testdata.signIn.invalidaccount.password]
-        cy.get(pageInfo.homepage.Menulogin).click() 
-        common.login(loginselector, data)                     
-    })
+  it("login by the wrong keepwork account",function(){
+    data = [testdata.signIn.invalidaccount.username,testdata.signIn.invalidaccount.password]
+    cy.get(pageInfo.homepage.Menulogin).click() 
+    common.login(loginselector, data)                     
+  })
 
-    it("login by the right keepwork account", function () {
-        data = [testdata.signIn.account.username, testdata.signIn.account.password]
-        common.login(loginselector, data)        
-        cy.get(pageInfo.homepage.avator)       
-        common.logout(logoutselector)
-    })
+  it("login by the right keepwork account", function () {
+    data = [testdata.signIn.account.username, testdata.signIn.account.password]
+    common.login(loginselector, data)        
+    cy.get(pageInfo.homepage.avator)       
+    common.logout(logoutselector)
+  })
 
-    it("login by the cellphone Number", function () {
-        data = [testdata.signIn.bindaccount.mobile, testdata.signIn.account.password]
-        cy.get(pageInfo.homepage.Menulogin).click()         
-        common.login(loginselector, data)        
-        cy.get(pageInfo.homepage.avator)
-        common.logout(logoutselector)
-    })
+  it("login by the cellphone Number", function () {
+    data = [testdata.signIn.bindaccount.mobile, testdata.signIn.account.password]
+    cy.get(pageInfo.homepage.Menulogin).click()         
+    common.login(loginselector, data)        
+    cy.get(pageInfo.homepage.avator)
+    common.logout(logoutselector)
+  })
 
-    it("login by the bounded email", function () {
-        data = [testdata.signIn.bindaccount.email, testdata.signIn.account.password]
-        cy.get(pageInfo.homepage.Menulogin).click() 
-        common.login(loginselector, data)        
-        cy.get(pageInfo.homepage.avator)
-        common.logout(logoutselector)
-    })
+  it("login by the bounded email", function () {
+    data = [testdata.signIn.bindaccount.email, testdata.signIn.account.password]
+    cy.get(pageInfo.homepage.Menulogin).click() 
+    common.login(loginselector, data)        
+    cy.get(pageInfo.homepage.avator)
+    common.logout(logoutselector)
+  })
 
-    // it("login by the third account",function(){
+  // it("login by the third account",function(){
 
-    // })
+  // })
 
 })

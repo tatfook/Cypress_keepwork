@@ -31,7 +31,7 @@ describe('The Keepwork Register Test', function () {
   })  
 
   it('register with the Number account', function () {
-    let username = common.GenStr(5)
+    let username = common.GenStr(6)
     cy.get(pageInfo.homepage.Menusignupbtn).click()
     cy.get(pageInfo.signUp.username).type(username).should('have.value', username)
     cy.get(pageInfo.signUp.warningInfo).then((text)=>{
@@ -41,7 +41,7 @@ describe('The Keepwork Register Test', function () {
   })
 
   it('register with the invalid SMS code', function () {
-    let username = "test" + common.GenStr(5, 'alphabetic')
+    let username = "test" + common.GenStr(8, 'alphabetic')
     cy.get(pageInfo.homepage.Menusignupbtn).click()
     data = [username, testdata.signup.account.password, testdata.signup.account.cellphone[0], testdata.signup.invalidaccount.smsCode]
     common.signup(SignUpselector, data)
@@ -49,7 +49,7 @@ describe('The Keepwork Register Test', function () {
   })
 
   it('register with the valid SMS code',function(){    
-    let username = common.GenStr(5, 'alphabetic')    
+    let username = common.GenStr(4, 'alphabetic') + common.GenStr(6, 'numeric')   
     let content = username + '\n';
     const ops = {
       flag: 'a+',
@@ -59,7 +59,7 @@ describe('The Keepwork Register Test', function () {
     data = [username, testdata.signup.account.password, testdata.signup.account.cellphone[0], testdata.signup.account.smsCode]   
     cy.get(pageInfo.homepage.Menusignupbtn).click()
     common.signup(SignUpselector, data)
-    cy.get(pageInfo.homepage.avator,{timeout:6000})
+    cy.get(pageInfo.homepage.avator,{timeout:15000})
     common.logout(logoutselector)
   })
 
@@ -74,7 +74,7 @@ describe('The Keepwork Register Test', function () {
   })
 
   it('register with the same telephone Number again', function () {
-    let username = common.GenStr(5, 'alphabetic')
+    let username = common.GenStr(5, 'alphabetic') + common.GenStr(5,'numeric')
     let content = username +'\n';
     const ops = {
       flag: 'a+',

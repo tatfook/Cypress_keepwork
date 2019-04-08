@@ -23,7 +23,7 @@ describe("Search Test",function(){
 		cy.get(pageInfo.homepage.avator, { timeout: 6000 })
 	})
 
-	beforeeach(function () {
+	beforeEach(function () {
 		Cypress.Cookies.preserveOnce('token')
 	})	
 
@@ -140,15 +140,22 @@ describe("Search Test",function(){
 	it("search the private project",function () {
 		cy.get(pageInfo.explorationpage.projectName).click()
 		common.search(searchselector, testdata.search.privateProject)
-		common.verifySearchContent(pageInfo.explorationpage.total_num, testdata.search.result.Num)
+		common.verifySearchContent(pageInfo.explorationpage.total_num, testdata.search.result.Num.toString())
 		common.verifySearchContent(pageInfo.explorationpage.checkpoint.noresult, testdata.search.result.noData)
 	})
    
 	it("filp over the page verification",function () {
 		common.search(searchselector, testdata.search.projectName)
 		common.verifySearchTotalNum(pageInfo.explorationpage.total_num, testdata.search.result.Num)
-		cy.get(pageInfo.explorationpage.paging.nextpage).click()
-	})
+    cy.get(pageInfo.explorationpage.paging.nextpage).click()
+    cy.get(pageInfo.explorationpage.checkpoint.projectName).then(($t)=>{
+      expect($t[0].innerText).not.to.be.equal(null)
+    })
+  })
+  
+  after(function () {   
+    common.logout(logoutselector)
+  })
 
 	
 });
