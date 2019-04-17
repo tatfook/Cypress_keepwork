@@ -14,6 +14,7 @@ var MenuHeader = {
   "tools":{
     "main":"ul[role$='menubar'] > li:nth-child(6)",
     "webEditor":"a[href='/ed']",
+    "cloudDrive": "ul[x-placement='bottom-end']> li:nth-child(6) > a",
     "paracraft":"a[href^='http://paracraft.keepwork.com/download']"
   }
 }
@@ -27,10 +28,9 @@ var homepage = {
   "myprofile": "ul[x-placement='bottom-end']> li:nth-child(2) > a",
   "mywallet": "ul[x-placement='bottom-end']> li:nth-child(3) > a",
   "myprojects": "ul[x-placement='bottom-end']> li:nth-child(4) > a",
-  "mylessons": "ul[x-placement='bottom-end']> li:nth-child(5) > a",
-  "cloudDrive": "ul[x-placement='bottom-end']> li:nth-child(6) > a",
-  "setting": "ul[x-placement='bottom-end']> li:nth-child(7) > a",
-  "logout": "ul[x-placement='bottom-end']> li:nth-child(8) > a",
+  "mylessons": "ul[x-placement='bottom-end']> li:nth-child(5) > a",  
+  "setting": "ul[x-placement='bottom-end']> li:nth-child(6) > a",
+  "logout": "ul[x-placement='bottom-end']> li:nth-child(7) > a",
   "errorMessage": "div[role%='alert'] > p"
 }
 

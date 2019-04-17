@@ -3,6 +3,7 @@
  * Author: Duke
  * Description: verify the different mod in the page
  */
+/*
 let pageInfo = require('../../config/pageInfo')
 let testdata = require('../../config/testdata')
 let common = require("../../common/common")
@@ -105,4 +106,4 @@ describe("the module verification", function () {
   })
 
 
-})
+})*/
