@@ -3,7 +3,7 @@
  * Author: Duke
  * Description: verify the different mod in the page
  */
-/*
+
 let pageInfo = require('../../config/pageInfo')
 let testdata = require('../../config/testdata')
 let common = require("../../common/common")
@@ -40,63 +40,37 @@ describe("the module verification", function () {
 
   it("add the menu mod to the page", function () {
     let data = [testdata.tmppage.pageLayout.typeName, testdata.tmppage.pageLayout.emptytemp, common.GenStr(4, 'alphanumeric')]
-    //cy.get(pageInfo.editorpage.fileTree.myTree.topsite).click()    
+    //先创建一个新页面用来测试(验证完毕后会进行删除)
+    cy.get(pageInfo.editorpage.fileTree.myTree.topsite).click()    
     cy.get(pageInfo.editorpage.fileTree.myTree.topsite).trigger('mouseup')
     cy.get(pageInfo.editorpage.fileTree.myTree.topsite_addfile).click({ force: true })
     common.createSiteorPage(pageselector, data)
-    cy.get(pageInfo.editorpage.check.createpage_success.icon, { timeout: maxwaittime })
-    cy.get(pageInfo.editorpage.check.createpage_success.close).click()
+    cy.get(pageInfo.editorpage.check.createpage_success.icon, { timeout: maxwaittime })    
+    cy.get(pageInfo.pageTemplate.BasicLayout.editNow).click()
+    //再添加mod
+    cy.get(pageInfo.editorpage.previewArea.iframe)
+    cy.get(pageInfo.editorpage.previewArea.iframe).then(($iframe) =>{
+      const doc = $iframe.contents()
+      console.log("doc is " + doc);
+      doc.find(pageInfo.editorpage.previewArea.addbtn_icon).click()
+    })
+    
   })
 
   it("create new page include menu mod", function () {
-    let data = [testdata.tmppage.pageLayout.typeName, testdata.tmppage.pageLayout.menutemp, common.GenStr(4, 'alphanumeric')]
-    //cy.get(pageInfo.editorpage.fileTree.myTree.topsite).click()    
-    cy.get(pageInfo.editorpage.fileTree.myTree.topsite).trigger('mouseup')
-    cy.get(pageInfo.editorpage.fileTree.myTree.topsite_addfile).click({ force: true })
-    common.createSiteorPage(pageselector, data)
-    cy.get(pageInfo.editorpage.check.createpage_success.icon, { timeout: maxwaittime })
-    cy.get(pageInfo.editorpage.check.createpage_success.close).click()
+   
   })
 
   it("create the duplicate page", function () {
-    let data = [testdata.tmppage.pageLayout.typeName, testdata.tmppage.pageLayout.menutemp, testdata.sites.pageName]
-    cy.get(pageInfo.editorpage.fileTree.myTree.topsite).trigger('mouseup')
-    cy.get(pageInfo.editorpage.fileTree.myTree.topsite_addfile).click({ force: true })
-    cy.get(pageselector[0]).contains(data[0]).click()
-    cy.get(pageselector[1]).contains(data[1]).click()
-    cy.get(pageselector[2]).click()
-    cy.get(pageselector[3]).type(data[2]).should('have.value', data[2])
-    cy.get(pageInfo.pageTemplate.BasicLayout.check.warnningMsg).then(($val) => {
-      expect($val[0].innerText).to.be.equal(testdata.sites.Result.pagewarnning)
-    })
-    cy.get(pageInfo.editorpage.check.createpage_success.close).click()
+    
   })
 
   it("rename the pageA", function () {
-    cy.get(pageInfo.editorpage.fileTree.myTree.topsite).click()
-    cy.get(pageInfo.editorpage.fileTree.myTree.page).then(($t) => {
-      renamesite = ($t[0].innerText)
-    })
-    cy.get(pageInfo.editorpage.fileTree.myTree.page).trigger("mouseup")
-    cy.get(pageInfo.editorpage.fileTree.myTree.page_rename).click({ force: true })
-    cy.get(pageInfo.editorpage.fileTree.myTree.page_name).clear()
-    cy.get(pageInfo.editorpage.fileTree.myTree.page_name).type(common.GenStr(6, 'numeric'))
-    cy.get(pageInfo.editorpage.fileTree.myTree.page_confirmchange).click()
-    cy.wait(3000)
-    cy.get(pageInfo.editorpage.fileTree.myTree.page).then(($t) => {
-      expect($t[0].innerText).not.to.be.equal(renamesite)
-    })
-
+   
   })
 
   it("create new pageA again", function () {
-    let data = [testdata.tmppage.pageLayout.typeName, testdata.tmppage.pageLayout.emptytemp, renamesite]
-    //cy.get(pageInfo.editorpage.fileTree.myTree.topsite).click()    
-    cy.get(pageInfo.editorpage.fileTree.myTree.topsite).trigger('mouseup')
-    cy.get(pageInfo.editorpage.fileTree.myTree.topsite_addfile).click({ force: true })
-    common.createSiteorPage(pageselector, data)
-    cy.get(pageInfo.editorpage.check.createpage_success.icon, { timeout: maxwaittime })
-    cy.get(pageInfo.editorpage.check.createpage_success.close).click()
+    
   })
 
   after("exit the editor page", function () {
@@ -106,4 +80,4 @@ describe("the module verification", function () {
   })
 
 
-})*/
+})

@@ -1,5 +1,6 @@
 {
-  "baseUrl": "https://stage.keepwork.com",
+  "baseUrl": "https://keepwork.com",
+  "chromeWebSecurity": false,
   "viewportWidth": 1920,
   "viewportHeight": 1080,
   "integrationFolder":"cypress/integration"

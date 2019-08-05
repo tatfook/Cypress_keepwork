@@ -7,7 +7,7 @@
 'use strict';
 
 const Info = {
-  testUrl: 'https://stage.keepwork.com/',
+  testUrl: 'https://keepwork.com/',
   testTitle:'KeepWork',
   editorEnterance:'网站编辑器',
   signup: {

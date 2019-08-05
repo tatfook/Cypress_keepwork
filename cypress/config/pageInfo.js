@@ -102,7 +102,8 @@ var pageTemplate = {
     "next":"div.el-dialog > div.el-dialog__footer > span > span > button",
     "inputText": "input.el-input__inner",
     "backTo": "div.el-dialog__footer > span > span > button:nth-child(1)",
-    "create": "div.el-dialog__footer > span > span > button:nth-child(2)>span",    
+    "create": "div.el-dialog__footer > span > span > button:nth-child(2)>span", 
+    "editNow": "div.el-dialog__footer > span > span > button:nth-child(1)",
     "check": {
       "warnningMsg": "div.el-form-item__error"
     }
@@ -123,6 +124,11 @@ var editorpage = {
     "home":"div.kp-menu > button:nth-child(1)"
 
   },
+  "headerNavigation":{         //左侧头部导航按钮
+    "files":"#file-manager-button",
+    "cloud":"#managerWin > div >div.el-button-group >button:nth-child(2)",
+    "versions":"#managerWin > div >div.el-button-group >button:nth-child(3)"
+  },
   "mainarea":"h1.welcomeText",
   "createsiteBtn": "div.welcomeButton",  //欢迎页新建网站按钮
   "filelist_menu":{
@@ -130,7 +136,7 @@ var editorpage = {
   
   
   },
-  "fileTree":{
+  "fileTree":{   //文件树结构
     "openTree":{
       "topopenfile":"div[class^='opened-tree'] > div[role='tree']>div:nth-child(1)",
       "topoenfile_name":"div[class^='opened-tree'] > div[role='tree']>div:nth-child(1)>div>span:nth-child(2)>span:nth-child(2)",
@@ -158,6 +164,65 @@ var editorpage = {
     },
     "joinTree":{
 
+    }
+  },
+  "previewArea":{
+    "iframe":"#frameViewport",
+    "addbtn_icon":"main > div > div > div.add-btn-row > button > i",
+    "add_forward":"",
+    "add_behind":""
+    
+  },
+  "modList":{
+    "commmonly":{
+      "markdown":"div[role='tree'] > div:nth-child(1) > div[role='group'] >div:nth-child(1)",
+      "markdown_style":"div.box-items >div:nth-child(1)",
+      "board":"div[role='tree'] > div:nth-child(1) > div[role='group'] >div:nth-child(2)",
+      "board_style":"div.box-items >div:nth-child(1)"
+    },
+    "Navigation":{
+      "head_Nav":"div[role='tree'] > div:nth-child(2) > div[role='group'] >div:nth-child(1)",
+      "head_style":{
+
+      },
+      "menu":"div[role='tree'] > div:nth-child(2) > div[role='group'] >div:nth-child(2)",
+      "menu_style":{
+
+      }
+    },
+    "Graphic":{      
+      "image_loop":"div[role='tree'] > div:nth-child(3) > div[role='group'] >div:nth-child(1)",
+      "wide_screen":"div[role='tree'] > div:nth-child(3) > div[role='group'] >div:nth-child(2)",
+      "board":"div[role='tree'] > div:nth-child(3) > div[role='group'] >div:nth-child(3)"
+    },
+    "Text":{
+      "markdown": "div[role='tree'] > div:nth-child(4) > div[role='group'] >div:nth-child(1)",
+      "text": "div[role='tree'] > div:nth-child(4) > div[role='group'] >div:nth-child(2)",
+      "menu": "div[role='tree'] > div:nth-child(4) > div[role='group'] >div:nth-child(3)"
+    },
+    "interactive":{
+      "comment": "div[role='tree'] > div:nth-child(5) > div[role='group'] >div:nth-child(1)",
+      "QQ": "div[role='tree'] > div:nth-child(5) > div[role='group'] >div:nth-child(2)"      
+    },
+    "mix":{
+      "head_Nav": "div[role='tree'] > div:nth-child(6) > div[role='group'] >div:nth-child(1)",
+      "mix_position":"div[role='tree'] > div:nth-child(6) > div[role='group'] >div:nth-child(2)",
+      "mix_layer":"div[role='tree'] > div:nth-child(6) > div[role='group'] >div:nth-child(3)",
+      "paracraft":"div[role='tree'] > div:nth-child(6) > div[role='group'] >div:nth-child(4)",
+      "text_board":"div[role='tree'] > div:nth-child(6) > div[role='group'] >div:nth-child(5)"
+    },
+    "lesson":{
+      "lesson": "div[role='tree'] > div:nth-child(7) > div[role='group'] >div:nth-child(1)",
+      "quiz": "div[role='tree'] > div:nth-child(7) > div[role='group'] >div:nth-child(2)",
+      "hint": "div[role='tree'] > div:nth-child(7) > div[role='group'] >div:nth-child(3)"
+    },
+    "project":{
+      "project": "div[role='tree'] > div:nth-child(8) > div[role='group'] >div:nth-child(1)"      
+    },
+    "other":{
+      "paracraft": "div[role='tree'] > div:nth-child(9) > div[role='group'] >div:nth-child(1)",
+      "vip_read": "div[role='tree'] > div:nth-child(9) > div[role='group'] >div:nth-child(2)",
+      "iframe": "div[role='tree'] > div:nth-child(9) > div[role='group'] >div:nth-child(3)"
     }
   },
   "CodeArea": {
