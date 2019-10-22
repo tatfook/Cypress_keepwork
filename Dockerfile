@@ -1,5 +1,5 @@
 # base image
-FROM cypress/browers:node11.13.0-chrome73
+FROM cypress/browers
 
 # set working directory
 RUN mkdir /usr/src/test
