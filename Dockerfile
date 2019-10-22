@@ -2,7 +2,7 @@
 FROM cypress/browsers:chrome69
 
 
-RUN npm i cypress
+RUN npm install
 #RUN $(npm bin)/cypress run --browser chrome
 
 RUN ./node_modules/.bin/cypress verify 
