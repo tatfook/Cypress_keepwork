@@ -11,4 +11,4 @@ WORKDIR /code
 
 RUN ./node_modules/.bin/cypress verify 
 #run the script
-RUN npm run report
+CMD npm run report
