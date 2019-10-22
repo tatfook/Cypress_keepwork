@@ -1,16 +1,10 @@
 # base image
-FROM cypress/browers
+FROM cypress/browsers:chrome69
 
-# set working directory
-RUN mkdir /usr/src/test
-WORKDIR /usr/src/test
 
-# copy the scripts 
-COPY ./ /usr/src/test
-# install dependence
-RUN npm install 
+RUN npm i cypress
+#RUN $(npm bin)/cypress run --browser chrome
 
-#confirm the cypres install
 RUN ./node_modules/.bin/cypress verify 
 #run the script
 RUN npm run report
