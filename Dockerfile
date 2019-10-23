@@ -9,6 +9,6 @@ RUN mkdir /code
 ADD ./ /code/
 WORKDIR /code
 
-RUN ["/bin/sh", "-c", "./node_modules/.bin/cypress verify"] 
+#RUN ["/bin/sh", "-c", "./node_modules/.bin/cypress verify"] 
 #run the script
 CMD npm run report
