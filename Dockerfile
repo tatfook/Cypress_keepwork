@@ -1,5 +1,5 @@
 # base image
-FROM cypress/browsers:chrome69
+FROM cypress/included:3.6.0
 
 
 #RUN npm install
